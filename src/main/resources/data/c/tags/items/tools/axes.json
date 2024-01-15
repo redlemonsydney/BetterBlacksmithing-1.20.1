@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "better_blacksmithing:crude_axe",
+    "better_blacksmithing:obsidian_axe",
+    "better_blacksmithing:copper_axe",
+    "better_blacksmithing:bronze_axe",
+    "better_blacksmithing:steel_axe"
+  ]
+}

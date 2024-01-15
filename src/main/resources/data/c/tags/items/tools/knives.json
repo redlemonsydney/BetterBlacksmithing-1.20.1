@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "better_blacksmithing:obsidian_knife",
+    "better_blacksmithing:copper_knife",
+    "better_blacksmithing:bronze_knife",
+    "better_blacksmithing:steel_knife"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "better_blacksmithing:copper_pickaxe",
+    "better_blacksmithing:bronze_pickaxe",
+    "better_blacksmithing:steel_pickaxe",
+    "better_blacksmithing:crude_hammer",
+    "better_blacksmithing:copper_hammer",
+    "better_blacksmithing:bronze_hammer",
+    "better_blacksmithing:iron_hammer",
+    "better_blacksmithing:steel_hammer",
+    "better_blacksmithing:golden_hammer",
+    "better_blacksmithing:diamond_hammer",
+    "better_blacksmithing:netherite_hammer"
+  ]
+}

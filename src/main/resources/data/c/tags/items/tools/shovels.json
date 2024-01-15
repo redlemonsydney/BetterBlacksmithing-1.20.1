@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "better_blacksmithing:digging_stick",
+    "better_blacksmithing:copper_shovel",
+    "better_blacksmithing:bronze_shovel",
+    "better_blacksmithing:steel_shovel"
+  ]
+}

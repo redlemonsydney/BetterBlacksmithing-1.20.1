@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "better_blacksmithing:malleable_iron_chunk"
+    },
+    {
+      "item": "better_blacksmithing:malleable_iron_chunk"
+    },
+    {
+      "item": "better_blacksmithing:malleable_iron_chunk"
+    },
+    {
+      "tag": "minecraft:coals"
+    }
+  ],
+  "result": {
+    "item": "better_blacksmithing:malleable_steel_chunk",
+    "count": 3
+  }
+}

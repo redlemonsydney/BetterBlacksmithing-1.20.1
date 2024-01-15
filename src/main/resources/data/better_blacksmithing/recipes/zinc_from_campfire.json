@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": {
+    "item": "create:raw:zinc"
+  },
+  "result": "better_blacksmithing:malleable_zinc_chunk",
+  "experience": 0.1,
+  "cookingtime": 1000
+}

@@ -3,15 +3,15 @@
 	"id": "better_blacksmithing",
 	"version": "${version}",
 	"name": "Better Blacksmithing",
-	"description": "Because wood isn't sharp enough.",
+	"description": "Because wood isn't sharp enough to break stone.",
 	"authors": [
-		"Redlemon"
+		"Redlemon, Tazke"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
-	"license": "MIT",
+	"license": "LGLP-3.0 or later",
 	"icon": "assets/better_blacksmithing/icon.png",
 	"environment": "*",
 	"entrypoints": {

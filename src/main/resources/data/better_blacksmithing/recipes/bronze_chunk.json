@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "better_blacksmithing:malleable_copper_chunk"
+    },
+    {
+      "item": "better_blacksmithing:malleable_copper_chunk"
+    },
+    {
+      "item": "better_blacksmithing:malleable_copper_chunk"
+    },
+    {
+      "item": "better_blacksmithing:malleable_zinc_chunk"
+    }
+  ],
+  "result": {
+    "item": "better_blacksmithing:malleable_bronze_chunk",
+    "count": 4
+  }
+}

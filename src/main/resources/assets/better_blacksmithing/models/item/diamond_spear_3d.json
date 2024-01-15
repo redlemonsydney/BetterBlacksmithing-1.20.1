@@ -1,0 +1,6 @@
+{
+  "parent": "better_blacksmithing:item/large_handheld",
+  "textures": {
+    "layer0": "better_blacksmithing:item/diamond_spear_3d"
+  }
+}
