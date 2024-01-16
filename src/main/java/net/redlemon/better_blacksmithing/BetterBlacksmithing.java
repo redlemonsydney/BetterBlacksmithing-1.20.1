@@ -13,6 +13,7 @@ import net.redlemon.better_blacksmithing.block.ModBlocks;
 import net.redlemon.better_blacksmithing.block.entity.ModBlockEntities;
 import net.redlemon.better_blacksmithing.item.ModItems;
 import net.redlemon.better_blacksmithing.misc.ClearGrass;
+import net.redlemon.better_blacksmithing.recipe.ModRecipes;
 import net.redlemon.better_blacksmithing.screen.ModScreenHandlers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,9 +26,14 @@ public class BetterBlacksmithing implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModItems.registerModItems();
+
 		ModBlocks.registerModBlocks();
 		ModBlockEntities.registerBlockEntities();
+
 		ModScreenHandlers.registerScreenHandlers();
+
+		ModRecipes.registerRecipes();
+
 		ClearGrass.register();
 	}
 }

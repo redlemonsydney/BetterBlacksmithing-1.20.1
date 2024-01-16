@@ -6,8 +6,8 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
+import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.PropertyDelegate;
@@ -18,16 +18,18 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.redlemon.better_blacksmithing.item.ModItems;
+import net.redlemon.better_blacksmithing.recipe.BBFurnaceRecipe;
 import net.redlemon.better_blacksmithing.screen.BBFurnaceScreenHandler;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Optional;
+
 public class BBFurnaceBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
 
     private static final int INPUT_SLOT = 0;
-    private static final int FLUID_ITEM_SLOT = 1;
-    private static final int OUTPUT_SLOT = 2;
-    private static final int ENERGY_ITEM_SLOT = 3;
+    private static final int OUTPUT_SLOT = 1;
+    private static final int FUEL_SLOT = 2;
 
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
@@ -109,14 +111,17 @@ public class BBFurnaceBlockEntity extends BlockEntity implements ExtendedScreenH
         } else { resetProgress(); }
     }
 
-    private void resetProgress() {
-        this.progress = 0;
+    private void craftItem() {
+        Optional<BBFurnaceRecipe> recipe = getCurrentRecipe();
+
+        this.removeStack(INPUT_SLOT, 1);
+
+        this.setStack(OUTPUT_SLOT, new ItemStack(recipe.get().getOutput(null).getItem(),
+                this.getStack(OUTPUT_SLOT).getCount() + recipe.get().getOutput(null).getCount()));
     }
 
-    private void craftItem() {
-        this.removeStack(INPUT_SLOT, 1);
-        this.setStack(OUTPUT_SLOT, new ItemStack(ModItems.MALLEABLE_COPPER_CHUNK,
-                this.getStack(OUTPUT_SLOT).getCount() + 1));
+    private void resetProgress() {
+        this.progress = 0;
     }
 
     private boolean hasCraftingFinished() {
@@ -128,7 +133,32 @@ public class BBFurnaceBlockEntity extends BlockEntity implements ExtendedScreenH
     }
 
     private boolean hasRecipe() {
-        return this.getStack(INPUT_SLOT).getItem() == Items.RAW_COPPER;
+        Optional<BBFurnaceRecipe> recipe = getCurrentRecipe();
+
+        if (recipe.isEmpty()) {
+            return false;
+        }
+        ItemStack output = recipe.get().getOutput(null);
+
+        return canInsertAmountIntoOutputSlot(output.getCount())
+                && canInsertIntoOutputSlot(output);
+    }
+
+    private boolean canInsertIntoOutputSlot(ItemStack output) {
+        return this.getStack(OUTPUT_SLOT).isEmpty() || this.getStack(OUTPUT_SLOT).getItem() == output.getItem();
+    }
+
+    private boolean canInsertAmountIntoOutputSlot(int count) {
+        return this.getStack(OUTPUT_SLOT).getMaxCount() >= this.getStack(OUTPUT_SLOT).getCount() + count;
+    }
+
+    private Optional<BBFurnaceRecipe> getCurrentRecipe() {
+        SimpleInventory inventory = new SimpleInventory((this.size()));
+        for (int i = 0; i < this.size(); i++) {
+            inventory.setStack(i, this.getStack(i));
+        }
+
+        return this.getWorld().getRecipeManager().getFirstMatch(BBFurnaceRecipe.Type.INSTANCE, inventory, this.getWorld());
     }
 
     private boolean canInsertIntoOutputSlot() {

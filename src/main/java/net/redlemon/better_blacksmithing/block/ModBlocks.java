@@ -11,19 +11,17 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.redlemon.better_blacksmithing.BetterBlacksmithing;
 import net.redlemon.better_blacksmithing.block.custom.BBFurnaceBlock;
-import net.redlemon.better_blacksmithing.block.custom.PleaseFuckingWorkBlock;
 
 public class ModBlocks {
 
     public static final Block STEEL_BLOCK = registerBlock("steel_block",
-            new BBFurnaceBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
+            new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
 
     public static final Block BRONZE_BLOCK = registerBlock("bronze_block",
             new Block(FabricBlockSettings.copyOf(Blocks.COPPER_BLOCK)));
 
-    public static final Block PLEASE_WORK_BLOCK = registerBlock("please_work_block",
-            new PleaseFuckingWorkBlock(FabricBlockSettings.copyOf(Blocks.FURNACE)));
-
+    public static final Block BB_FURNACE = registerBlock("furnace",
+            new BBFurnaceBlock(FabricBlockSettings.copyOf(Blocks.STONE)));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

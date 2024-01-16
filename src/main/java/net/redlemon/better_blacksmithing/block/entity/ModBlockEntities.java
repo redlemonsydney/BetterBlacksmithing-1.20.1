@@ -13,7 +13,12 @@ public class ModBlockEntities {
     public static final BlockEntityType<BBFurnaceBlockEntity> FURNACE_BE =
             Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(BetterBlacksmithing.MOD_ID, "furnace_block_entity"),
                     FabricBlockEntityTypeBuilder.create(BBFurnaceBlockEntity::new,
-                            ModBlocks.STEEL_BLOCK).build(null));
+                            ModBlocks.BB_FURNACE).build(null));
+
+    public static final BlockEntityType<BBFurnaceBlockEntity> FURNACE_BE2 =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(BetterBlacksmithing.MOD_ID, "furnace_block_entity2"),
+                    FabricBlockEntityTypeBuilder.create(BBFurnaceBlockEntity::new,
+                            ModBlocks.BB_FURNACE).build(null));
 
 
     public static void registerBlockEntities() {

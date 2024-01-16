@@ -25,15 +25,14 @@ public class BBFurnaceScreenHandler extends ScreenHandler {
     public BBFurnaceScreenHandler(int syncId, PlayerInventory playerInventory,
                                   BlockEntity blockEntity, PropertyDelegate arrayPropertyDelegate) {
         super(ModScreenHandlers.FURNACE_SCREEN_HANDLER, syncId);
-        checkSize(((Inventory) blockEntity), 4);
+        checkSize(((Inventory) blockEntity), 3);
         this.inventory = (Inventory)blockEntity;
         this.propertyDelegate = arrayPropertyDelegate;
         this.blockEntity = ((BBFurnaceBlockEntity) blockEntity);
 
         this.addSlot(new Slot(inventory, 0, 80, 11));
-        this.addSlot(new Slot(inventory, 1, 26, 59));
-        this.addSlot(new Slot(inventory, 2, 80, 59));
-        this.addSlot(new Slot(inventory, 3, 134, 59));
+        this.addSlot(new Slot(inventory, 1, 80, 59));
+        this.addSlot(new Slot(inventory, 2, 26, 59));
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);

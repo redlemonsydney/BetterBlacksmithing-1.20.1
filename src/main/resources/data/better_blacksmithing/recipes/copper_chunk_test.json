@@ -1,0 +1,11 @@
+{
+  "type": "better_blacksmithing:furnace",
+  "ingredients": [
+    {
+      "item": "minecraft:raw_copper"
+    }
+  ],
+  "output": {
+    "item": "minecraft:copper_ingot"
+  }
+}

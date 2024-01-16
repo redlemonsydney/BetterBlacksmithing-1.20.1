@@ -403,7 +403,7 @@ public class ModItems {
     }
 
     private static void itemGroupIngredients(FabricItemGroupEntries entries) {
-        entries.add(ModBlocks.PLEASE_WORK_BLOCK);
+        entries.add(ModBlocks.BB_FURNACE);
         entries.add(BRONZE_INGOT);
         entries.add(BRONZE_NUGGET);
         entries.add(ModBlocks.BRONZE_BLOCK);
